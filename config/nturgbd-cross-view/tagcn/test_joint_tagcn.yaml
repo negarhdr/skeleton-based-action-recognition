@@ -1,0 +1,28 @@
+# feeder
+feeder: feeders.feeder.Feeder
+test_feeder_args:
+  data_path: ./data/nturgbd_cv/val_joints.npy
+  label_path: ./data/nturgbd_cv/val_labels.pkl
+  debug: False
+
+# model
+model: model.tagcn.TAGCN
+model_args:
+  num_class: 60
+  num_point: 25
+  num_person: 2
+  num_frames: 300
+  num_selected_frames: 150
+  graph: graph.ntu_rgb_d.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+# test
+phase: test
+device: 0
+test_batch_size: 1
+weights: ./pretrained_models/tagcn/tagcn_nturgbd_cv_joint-49-29400.pt
+
+work_dir: ./work_dir/ntu/xsub/agcn_test_joint
+model_saved_name: ./runs/ntu_cs_agcn_test_joint
+save_score: False

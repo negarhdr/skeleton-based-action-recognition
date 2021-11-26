@@ -1,0 +1,28 @@
+# feeder
+feeder: feeders.feeder.Feeder
+test_feeder_args:
+  data_path: ./data/kinetics/val_joints.npy
+  label_path: ./data/kinetics/val_labels.pkl
+  debug: False
+
+# model
+model: model.tagcn.TAGCN
+model_args:
+  num_class: 400
+  num_person: 2
+  num_point: 18
+  graph: graph.kinetics.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+
+# test 
+phase: test
+device: 0
+test_batch_size: 1
+weights: ./pretrained_models/tagcn/tagcn_kinetics_joint-64-122070/tagcn_kinetics_joint-64-122070.pt
+
+
+work_dir: ./work_dir/kinetics/stgcn_joint_test
+model_saved_name: ./runs/ki_stgcn_joint_test
+save_score: False
