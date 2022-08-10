@@ -23,6 +23,7 @@ model_args:
   num_class: 60
   num_point: 25
   num_person: 2
+  in_channels: 2
   graph: graph.ntu_rgb_d.Graph
   graph_args:
     labeling_mode: 'spatial'
