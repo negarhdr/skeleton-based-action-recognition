@@ -62,7 +62,7 @@ def get_parser():
                         help='the work folder for storing results')
     parser.add_argument('-model_saved_name', default='')
     parser.add_argument('--config',
-                        default='./config/nturgbd-cross-view/test_bone.yaml',
+                        default='./config/nturgbd-cross-view/agcn/train_joint_agcn.yaml',
                         help='path to the configuration file')
 
     parser.add_argument('--results_file_name', default='results.txt')
