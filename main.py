@@ -651,7 +651,7 @@ if __name__ == '__main__':
     p = parser.parse_args()
     if p.config is not None:
         with open(p.config, 'r') as f:
-            default_arg = yaml.load(f)
+            default_arg = yaml.load(f, Loader=yaml.Loader)
         key = vars(p).keys()
         for k in default_arg.keys():
             if k not in key:
