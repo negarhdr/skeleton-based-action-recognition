@@ -157,11 +157,6 @@ class AGCN(nn.Module):
 
     def forward(self, x):
         N, C, T, V, M = x.size()
-        print(N)
-        print(C)
-        print(T)
-        print(V)
-        print(M)
         x = x.permute(0, 4, 3, 1, 2).contiguous().view(N, M * V * C, T)
         x = self.data_bn(x)
         x = x.view(N, M, V, C, T).permute(0, 1, 3, 4, 2).contiguous().view(N * M, C, T, V)

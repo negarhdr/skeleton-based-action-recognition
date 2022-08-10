@@ -21,10 +21,10 @@ model: model.agcn.AGCN
 model_name: agcn
 model_args:
   num_class: 60
-  num_point: 25
+  num_point: 18
   num_person: 2
   in_channels: 2
-  graph: graph.ntu_rgb_d.Graph
+  graph: graph.kinetics.Graph
   graph_args:
     labeling_mode: 'spatial'
 
