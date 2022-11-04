@@ -9,11 +9,9 @@ import random
 import shutil
 import time
 from collections import OrderedDict
-
 import numpy as np
 # torch
 import torch
-import torch.backends.cudnn as cudnn
 import torch.nn as nn
 import torch.optim as optim
 import yaml
@@ -21,7 +19,6 @@ from tensorboardX import SummaryWriter
 from torch.autograd import Variable
 from torch.optim.lr_scheduler import _LRScheduler
 from tqdm import tqdm
-from thop import profile
 
 
 class GradualWarmupScheduler(_LRScheduler):

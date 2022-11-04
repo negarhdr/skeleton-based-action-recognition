@@ -1,0 +1,41 @@
+work_dir: ./work_dir/ntu/xview/agcn_joint_mediapipe3d
+model_saved_name: ./runs/agcn/ntu_cv_agcn_joint_mediapipe3d
+# feeder
+feeder: feeders.feeder.Feeder
+train_feeder_args:
+  data_path: ../HAR_data/ntu_mediapipe/xview/train/mediapipe_3D_normalized.npy # ??
+  label_path: ../HAR_data/ntu_mediapipe/xview/train/train_label.pkl  # ??
+  debug: False
+  random_choose: False
+  random_shift: False
+  random_move: False
+  window_size: -1
+  normalization: False
+
+test_feeder_args:
+  data_path: ../HAR_data/ntu_mediapipe/xview/train/mediapipe_3D_normalized.npy # ?? update it with val data
+  label_path: ../HAR_data/ntu_mediapipe/xview/train/train_label.pkl # ?? update it with val data
+
+# model
+model: model.agcn.AGCN
+model_name: agcn
+model_args:
+  num_class: 60
+  num_point: 33
+  num_person: 2
+  in_channels: 3
+  graph: graph.mediapipe.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+#optim
+weight_decay: 0.0001
+base_lr: 0.1
+step: [30, 40]
+
+# training
+device: [4,5,6,7]
+batch_size: 64
+test_batch_size: 128
+num_epoch: 50
+nesterov: True
