@@ -33,7 +33,16 @@ landmark-based facial expression recognition task in our paper [[6]](#6), and th
 This implementation is modified based on the [OpenMMLAB toolbox](
 https://github.com/open-mmlab/mmskeleton/tree/b4c076baa9e02e69b5876c49fa7c509866d902c7), and the [2s-AGCN](https://github.com/lshiwjx/2s-AGCN) repositories.
 
-This project is funded by the [OpenDR European project]((https://opendr.eu/)) and the implementations are also integrated in OpenDR toolkit which will be publicly available soon. 
+This project is funded by the [OpenDR European project]((https://opendr.eu/)) and the implementations are also integrated in OpenDR toolkit which is publicly available. 
+
+
+# Demo
+All the aforementioned methods are also integerated in the [OpenDR toolkit](https://github.com/opendr-eu/opendr) along with a webcam [demo code](https://github.com/opendr-eu/opendr/tree/master/projects/perception/skeleton_based_action_recognition/demos). 
+In this demo, we use [light-weight OpenPose](https://github.com/opendr-eu/opendr/tree/master/src/opendr/perception/pose_estimation/lightweight_open_pose) [[10]](#10), which is integerated in the toolkit as well, to extract skeletons from each input frame and then we feed a sequence of 300 skeletons to a pre-trained ST-GCN-based model in this toolkit. 
+
+https://user-images.githubusercontent.com/36771997/163422313-262427ab-57e7-476e-92a4-142b074a2d07.mp4
+
+
 # Data Preparation
 
  - Download the raw data from [NTU-RGB+D](https://github.com/shahroudy/NTURGB-D) and [Skeleton-Kinetics](https://github.com/yysijie/st-gcn). Then put them under the data directory:
@@ -88,13 +97,6 @@ Then combine the generated scores with:
     `sh run_stgcn.sh`
  
 	
-# Demo
-All the aforementioned methods are also integerated in the [OpenDR toolkit](https://github.com/opendr-eu/opendr) along with a webcam [demo code](https://github.com/opendr-eu/opendr/tree/master/projects/perception/skeleton_based_action_recognition/demos). 
-In this demo, we use [light-weight OpenPose](https://github.com/opendr-eu/opendr/tree/master/src/opendr/perception/pose_estimation/lightweight_open_pose) [[10]](#10), which is integerated in the toolkit as well, to extract skeletons from each input frame and then we feed a sequence of 300 skeletons to a pre-trained ST-GCN-based model in this toolkit. 
-
-https://user-images.githubusercontent.com/36771997/163422313-262427ab-57e7-476e-92a4-142b074a2d07.mp4
-
-
 	
 # Citation
 Please cite the following papers if you use any of the proposed methods implemented in this repository in your reseach.
